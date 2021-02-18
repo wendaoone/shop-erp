@@ -1,0 +1,16 @@
+# 应用名称
+jwt:
+  # 密匙KEY
+  secret: TxX9ibnCMAhBM4CQ7NdaQ5trYr2msHbY
+  # HeaderKEY
+  tokenHeader: Authorization
+  # Token前缀字符
+  tokenPrefix: challenger-
+  # 过期时间 单位秒 1天后过期=86400 7天后过期=604800
+  expiration: 86400
+  # 配置不需要认证的接口
+  antMatchers: /index/**,/login/**,/favicon.ico
+  # 有效时间   // todo 有效时间和过期时间不一致原因
+  validTime: 7
+
+

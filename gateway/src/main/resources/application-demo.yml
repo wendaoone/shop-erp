@@ -1,0 +1,64 @@
+# Weight与path,Before,After,Between结合演示  注意 Weight中的第一个参数名字一定要相同
+# 表示匹配/index.html路径的请求，在指定时间T1到T2之内百分之20%概率请求www.baidu.com,
+#                            在T1时间之后60%概率请求到tmall,
+#                            在t2时间之前20%请求到jd
+# 运行结果 由于Weight的影响导致有一部分请求会找不到任何请求导致404
+# 注意时间格式为yyyy-MM-ddTHH:mm:ss.SSS+时区(东八区为+08:00)
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: test_tmall
+#          uri: https://www.jd.com
+#          predicates:
+#            - Weight=group1, 2
+#            - Path=/index.html
+#            - Before=2021-01-20T19:22:47.789+08:00
+#        - id: test_tmall
+#          uri: https://www.tmall.com
+#          predicates:
+#            - Weight=group1, 6
+#            - Path=/index.html
+#            - After=2021-01-20T19:28:47.789+08:00
+#        - id: test_baidu
+#          uri: https://www.baidu.com
+#          predicates:
+#            - Weight=group1, 2
+#            - Path=/index.html
+#            - Between=2021-01-20T19:28:47.789+08:00, 2021-01-21T19:28:47.789+08:00
+
+
+
+# 以下测试主要测试过滤器的各种使用方式
+# AddRequestHeader/AddRequestParameter/AddResponseHeader/MapRequestHeader/PrefixPath
+# RemoveRequestHeader/RemoveRequestParameter/RemoveResponseHeader  删除浏览器携带的header或者参数或者返回给浏览器的header
+# PreserveHostHeader 保留原始host值 默认为gateway网关的值
+# PrefixPath 给请求添加/admin前缀
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: test_filters
+          uri: http://localhost:81
+          predicates:
+            - Path=/demo/**
+          filters:
+            - AddRequestHeader=test-header-abo, abo-for-header-test
+            - AddRequestParameter=test-abo-param, test-abo-param
+            - AddResponseHeader=test-response-header-abo, test-abo-response-header
+            - MapRequestHeader=test-map-request, abo-for-map-request-header-test
+            - RemoveRequestHeader=accept
+            - RemoveRequestParameter=user
+            - RemoveResponseHeader=Date
+            - PreserveHostHeader
+            - PrefixPath=/admin
+
+
+
+
+
+
+
+
+
+
