@@ -7,5 +7,5 @@ import java.io.Serializable;
 @Data
 public class ConfigVo implements Serializable {
 
-    private String security="";
+    private String security = "";
 }

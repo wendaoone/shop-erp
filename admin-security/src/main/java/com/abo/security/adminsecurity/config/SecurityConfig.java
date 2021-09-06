@@ -40,7 +40,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private List<AuthenticationProvider> authenticationProviderList;
 
 
-
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
@@ -49,13 +48,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public UsernamePasswordEnhanceAuthenticationFilter usernamePasswordEnhanceAuthenticationFilter() throws Exception {
-        UsernamePasswordEnhanceAuthenticationFilter filter=new UsernamePasswordEnhanceAuthenticationFilter();
+        UsernamePasswordEnhanceAuthenticationFilter filter = new UsernamePasswordEnhanceAuthenticationFilter();
         filter.setAuthenticationManager(authenticationManager());
         filter.setVerifyCodeService(verifyCodeService);
         return filter;
     }
 
-    private void authenticationProvider(HttpSecurity http){
+    private void authenticationProvider(HttpSecurity http) {
         for (AuthenticationProvider authenticationProvider : authenticationProviderList) {
             http.authenticationProvider(authenticationProvider);
         }

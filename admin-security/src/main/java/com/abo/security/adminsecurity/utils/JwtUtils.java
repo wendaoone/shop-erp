@@ -10,7 +10,6 @@ public class JwtUtils {
     private static final String secretKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9"; //进行数字签名的私钥，一定要保管好，不能和我一样写到博客中。。。。。
 
 
-
     public static String acquireJWT(JWTConfig jwtConfig, UserDetails userDetails) {
         return "";
 //
@@ -24,6 +23,7 @@ public class JwtUtils {
 //                .signWith(SignatureAlgorithm.HS256, secretKey);
 //        return jwtBuilder.compact();
     }
+
     /**
      * 解析JWT字符串
      *

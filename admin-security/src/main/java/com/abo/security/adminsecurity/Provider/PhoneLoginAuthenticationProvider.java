@@ -26,10 +26,10 @@ public class PhoneLoginAuthenticationProvider implements AuthenticationProvider 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
-        UserDetails user =phoneUserService.loadUserByUsername(username);
-        String sms="123";
+        UserDetails user = phoneUserService.loadUserByUsername(username);
+        String sms = "123";
         Collection<? extends GrantedAuthority> authorities = user.getAuthorities();
-        return new PhoneAbstractAuthenticationToken(user,sms,authorities);
+        return new PhoneAbstractAuthenticationToken(user, sms, authorities);
     }
 
     @Override

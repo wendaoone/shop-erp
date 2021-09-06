@@ -21,25 +21,25 @@ public class Messages<T> {
     private String message;
 
 
-    public static Messages success(){
-        Messages<String> messages =new Messages<>();
+    public static Messages success() {
+        Messages<String> messages = new Messages<>();
         messages.setCode(ResultCode.SUCCESS.getCode());
         messages.setMessage(ResultCode.SUCCESS.getMessage());
         return messages;
     }
 
-    public static <T> Messages success(T data){
-        Messages<T> messages= success();
+    public static <T> Messages success(T data) {
+        Messages<T> messages = success();
         messages.setData(data);
         return messages;
     }
 
-    public static Messages fail(){
+    public static Messages fail() {
         return fail(ResultCode.ERROR.getMessage());
     }
 
-    public static Messages fail(String data){
-        Messages<String> messages =new Messages<>();
+    public static Messages fail(String data) {
+        Messages<String> messages = new Messages<>();
         messages.setCode(ResultCode.ERROR.getCode());
         messages.setMessage(data);
         return messages;

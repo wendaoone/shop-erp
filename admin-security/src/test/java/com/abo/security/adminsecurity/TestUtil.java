@@ -3,12 +3,10 @@ package com.abo.security.adminsecurity;
 import java.util.ArrayList;
 import java.util.List;
 
-public   class TestUtil {
+public class TestUtil {
 
 
-
-    private  List<Integer> list =new ArrayList<>();
-
+    private List<Integer> list = new ArrayList<>();
 
 
     public List<Integer> getList() {
@@ -16,7 +14,7 @@ public   class TestUtil {
     }
 
 
-    public void printf(){
+    public void printf() {
         System.out.println(getList().toString());
         System.out.println(list.toString());
     }

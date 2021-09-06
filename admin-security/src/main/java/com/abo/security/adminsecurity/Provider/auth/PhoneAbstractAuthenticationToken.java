@@ -10,7 +10,7 @@ public class PhoneAbstractAuthenticationToken extends AbstractAuthenticationToke
      * Creates a token with the supplied array of authorities.
      *
      * @param authorities the collection of <tt>GrantedAuthority</tt>s for the principal
-     *                    represented by this authentication object.
+     * represented by this authentication object.
      */
     //手机号
     private final Object principal;
@@ -26,7 +26,7 @@ public class PhoneAbstractAuthenticationToken extends AbstractAuthenticationToke
     }
 
     public PhoneAbstractAuthenticationToken(Object principal, Object credentials,
-                                               Collection<? extends GrantedAuthority> authorities) {
+                                            Collection<? extends GrantedAuthority> authorities) {
         super(authorities);
         this.principal = principal;
         this.credentials = credentials;

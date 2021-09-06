@@ -7,18 +7,22 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="admin-author" />
-        <module name="admin-security" />
         <module name="gateway" />
+        <module name="admin-author" />
         <module name="admin-base-common" />
+        <module name="shop-server-generator" />
+        <module name="admin-security" />
+        <module name="admin-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="admin-author" target="1.8" />
       <module name="admin-base-common" target="1.8" />
       <module name="admin-security" target="1.8" />
+      <module name="admin-service" target="1.8" />
       <module name="gateway" target="1.8" />
       <module name="shop-erp" target="1.8" />
+      <module name="shop-server-generator" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -26,7 +30,9 @@
       <module name="admin-author" options="-parameters" />
       <module name="admin-base-common" options="-parameters" />
       <module name="admin-security" options="-parameters" />
+      <module name="admin-service" options="-parameters" />
       <module name="gateway" options="-parameters" />
+      <module name="shop-server-generator" options="-parameters" />
     </option>
   </component>
 </project>

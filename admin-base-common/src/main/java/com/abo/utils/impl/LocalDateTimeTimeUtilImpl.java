@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 public class LocalDateTimeTimeUtilImpl implements TimeUtil<LocalDateTime> {
     @Override
     public String format(LocalDateTime time) {
-        return  format( time, DatePatternEnum.YYYYMMDDHHMMSS_BYSEP.getFormat());
+        return format(time, DatePatternEnum.YYYYMMDDHHMMSS_BYSEP.getFormat());
     }
 
     @Override

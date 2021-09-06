@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoginConfigController {
 
     @GetMapping("admin/config")
-    public Messages<ConfigVo> getConfig(){
+    public Messages<ConfigVo> getConfig() {
 
         return Messages.success(new ConfigVo());
 

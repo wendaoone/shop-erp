@@ -17,13 +17,14 @@ import javax.servlet.http.HttpServletResponse;
  * 通过该方式登陆，会优先校验请求是否已经触发验证码校验，如果没有触发验证码校验，
  * 则直接采用父类做用户名密码登陆逻辑，
  * 否则校验验证码，当验证码通过校验才使用父类做用户名密码校验
+ *
  * @author abo
  */
 public class UsernamePasswordEnhanceAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     public static final String SPRING_SECURITY_FORM_VERIFY_CODE_KEY = "code";
 
-    public static final String SPRING_SECURITY_FORM_VERIFY_CODE_PARAMETER_KEY="verifyCode";
+    public static final String SPRING_SECURITY_FORM_VERIFY_CODE_PARAMETER_KEY = "verifyCode";
 
     private String verifyCodeParameter = SPRING_SECURITY_FORM_VERIFY_CODE_KEY;
 
@@ -55,24 +56,22 @@ public class UsernamePasswordEnhanceAuthenticationFilter extends UsernamePasswor
     }
 
     public void setVerifyCodeParameter(String verifyCodeParameter) {
-        Assert.hasLength(verifyCodeParameter,"账号密码登陆验证码参数不能为空！");
+        Assert.hasLength(verifyCodeParameter, "账号密码登陆验证码参数不能为空！");
         this.verifyCodeParameter = verifyCodeParameter;
     }
 
     public void setVerifyCodeParameterKey(String verifyCodeParameterKey) {
-        Assert.hasLength(verifyCodeParameterKey,"账号密码登陆验证码参数名不能为空！");
+        Assert.hasLength(verifyCodeParameterKey, "账号密码登陆验证码参数名不能为空！");
         this.verifyCodeParameterKey = verifyCodeParameterKey;
     }
 
 
-
-
     public Authentication attemptAuthentication(HttpServletRequest request,
-                                                HttpServletResponse response) throws AuthenticationException{
+                                                HttpServletResponse response) throws AuthenticationException {
         String verifyCode = obtainVerifyCode(request);
         String verifyCodeParameterKey = obtainVerifyCodeKey(request);
-        verifyCodeService.checkVerifyCode(verifyCodeParameterKey,verifyCode);
-        return super.attemptAuthentication(request,response);
+        verifyCodeService.checkVerifyCode(verifyCodeParameterKey, verifyCode);
+        return super.attemptAuthentication(request, response);
     }
 
 }

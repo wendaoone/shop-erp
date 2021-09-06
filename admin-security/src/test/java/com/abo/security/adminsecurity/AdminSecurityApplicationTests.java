@@ -11,7 +11,7 @@ class AdminSecurityApplicationTests {
 
     @Test
     void contextLoads() {
-        TestUtil testUtil=new Test1();
+        TestUtil testUtil = new Test1();
         testUtil.getList().add(1);
         testUtil.getList().add(2);
         testUtil.getList().add(3);
