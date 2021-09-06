@@ -55,7 +55,7 @@ Spring Cloud Gateway旨在提供一种简单而有效的方式来对API进行路
   
   待整理
   HttpWebHandlerAdapter.handle 方法首先会调用createExchange方法生成DefaultServerWebExchange，
-  并且初始化其中参数request,response,session,localeContextResolver(多语音解释器),
+  并且初始化其中参数request,response,session,localeContextResolver(多语言解释器),
   formDataMono(form表单参数)与(multipartDataMono)上传的文件,applicationContext上下文
   
   

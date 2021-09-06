@@ -12,5 +12,9 @@ jwt:
   antMatchers: /index/**,/login/**,/favicon.ico
   # 有效时间   // todo 有效时间和过期时间不一致原因
   validTime: 7
+logging:
+  level:
+    root: info
+
 
 
